@@ -1,7 +1,15 @@
 #!/bin/bash
 find jenkins-home-dir -mindepth 1 | while read ENTRY; do
-TARGET=$ENTRY
 LINK_NAME=~/$(echo $ENTRY|sed -e "s^jenkins-home-dir/^^")
-rm -v $LINK_NAME
-ln -s $ENTRY $LINK_NAME
+ENTRY=$(pwd)/$ENTRY
+if [ -d $ENTRY ]; then
+	echo Directory 
+	if ! [ -d $LINK_NAME ]; then
+		mkdir $LINK_NAME;
+	fi
+else 
+	echo Regular file
+	rm -v $LINK_NAME
+	ln -s $ENTRY $LINK_NAME
+fi
 done
