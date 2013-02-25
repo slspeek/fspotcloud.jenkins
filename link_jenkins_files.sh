@@ -10,6 +10,6 @@ if [ -d $ENTRY ]; then
 else 
 	echo Regular file
 	rm -v $LINK_NAME
-	ln -s $ENTRY $LINK_NAME
+	ln -v $ENTRY $LINK_NAME
 fi
 done
