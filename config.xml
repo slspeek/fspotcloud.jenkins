@@ -4,51 +4,7 @@
   <version>1.480</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
-  <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
-    <permission>hudson.model.Computer.Configure:JanT</permission>
-    <permission>hudson.model.Computer.Configure:slspeek</permission>
-    <permission>hudson.model.Computer.Connect:JanT</permission>
-    <permission>hudson.model.Computer.Connect:slspeek</permission>
-    <permission>hudson.model.Computer.Create:JanT</permission>
-    <permission>hudson.model.Computer.Create:slspeek</permission>
-    <permission>hudson.model.Computer.Delete:JanT</permission>
-    <permission>hudson.model.Computer.Delete:slspeek</permission>
-    <permission>hudson.model.Computer.Disconnect:JanT</permission>
-    <permission>hudson.model.Computer.Disconnect:slspeek</permission>
-    <permission>hudson.model.Hudson.Administer:JanT</permission>
-    <permission>hudson.model.Hudson.Administer:slspeek</permission>
-    <permission>hudson.model.Hudson.Read:JanT</permission>
-    <permission>hudson.model.Hudson.Read:anonymous</permission>
-    <permission>hudson.model.Hudson.Read:slspeek</permission>
-    <permission>hudson.model.Hudson.RunScripts:JanT</permission>
-    <permission>hudson.model.Hudson.RunScripts:slspeek</permission>
-    <permission>hudson.model.Item.Build:JanT</permission>
-    <permission>hudson.model.Item.Build:slspeek</permission>
-    <permission>hudson.model.Item.Configure:JanT</permission>
-    <permission>hudson.model.Item.Configure:slspeek</permission>
-    <permission>hudson.model.Item.Create:JanT</permission>
-    <permission>hudson.model.Item.Create:slspeek</permission>
-    <permission>hudson.model.Item.Delete:JanT</permission>
-    <permission>hudson.model.Item.Delete:slspeek</permission>
-    <permission>hudson.model.Item.Read:JanT</permission>
-    <permission>hudson.model.Item.Read:anonymous</permission>
-    <permission>hudson.model.Item.Read:slspeek</permission>
-    <permission>hudson.model.Item.Workspace:JanT</permission>
-    <permission>hudson.model.Item.Workspace:slspeek</permission>
-    <permission>hudson.model.Run.Delete:JanT</permission>
-    <permission>hudson.model.Run.Delete:slspeek</permission>
-    <permission>hudson.model.Run.Update:JanT</permission>
-    <permission>hudson.model.Run.Update:slspeek</permission>
-    <permission>hudson.model.View.Configure:JanT</permission>
-    <permission>hudson.model.View.Configure:slspeek</permission>
-    <permission>hudson.model.View.Create:JanT</permission>
-    <permission>hudson.model.View.Create:slspeek</permission>
-    <permission>hudson.model.View.Delete:JanT</permission>
-    <permission>hudson.model.View.Delete:slspeek</permission>
-    <permission>hudson.scm.SCM.Tag:JanT</permission>
-    <permission>hudson.scm.SCM.Tag:slspeek</permission>
-  </authorizationStrategy>
+  <useSecurity>false</useSecurity>
   <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
     <disableSignup>true</disableSignup>
     <enableCaptcha>false</enableCaptcha>
