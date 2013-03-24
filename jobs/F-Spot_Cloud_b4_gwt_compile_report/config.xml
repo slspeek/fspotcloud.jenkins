@@ -4,14 +4,9 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM">
-    <source>https://code.google.com/p/fspotcloud.javasrc/</source>
-    <modules></modules>
-    <branch>experimental</branch>
-    <clean>false</clean>
-    <browser class="hudson.plugins.mercurial.browser.HgWeb">
-      <url>https://code.google.com/p/fspotcloud.javasrc/</url>
-    </browser>
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.5">
+    <parentJobName>F-Spot_Cloud_b4_gwt_compilation</parentJobName>
+    <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -20,26 +15,20 @@
   <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
       <description></description>
-      <switches>-Pgwt_compile_report=true -Pbuild_number=$BUILD_NUMBER -i</switches>
-      <tasks>client:clean client:build</tasks>
+      <switches>-Pgwt_compile_report=true  -i</switches>
+      <tasks>client:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 1.1</gradleName>
       <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>F-Spot_Cloud_c1_integration_tests_j2ee, F-Spot_Cloud_c2_integration_tests_gae</childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
-    <htmlpublisher.HtmlPublisher>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.2">
       <reportTargets>
         <htmlpublisher.HtmlPublisherTarget>
           <reportName>Dashboard compile report</reportName>

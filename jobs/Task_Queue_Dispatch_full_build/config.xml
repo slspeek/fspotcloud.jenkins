@@ -4,7 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM">
+  <scm class="hudson.plugins.mercurial.MercurialSCM" plugin="mercurial@1.44">
     <source>https://code.google.com/p/taskqueuedispatch/</source>
     <modules></modules>
     <clean>false</clean>
@@ -19,18 +19,21 @@
   <triggers class="vector">
     <hudson.triggers.SCMTrigger>
       <spec>*/5 * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
       <description></description>
       <switches></switches>
       <tasks>clean build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 1.1</gradleName>
       <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>

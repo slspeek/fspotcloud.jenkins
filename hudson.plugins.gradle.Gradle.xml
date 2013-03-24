@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.gradle.Gradle_-DescriptorImpl>
-  <helpRedirect/>
+<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.21">
   <installations>
     <hudson.plugins.gradle.GradleInstallation>
       <name>Gradle 1.0</name>
@@ -11,8 +10,19 @@
             <hudson.plugins.gradle.GradleInstaller>
               <id>1.0</id>
             </hudson.plugins.gradle.GradleInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+      <gradleHome></gradleHome>
+    </hudson.plugins.gradle.GradleInstallation>
+    <hudson.plugins.gradle.GradleInstallation>
+      <name>Gradle 1.1</name>
+      <home></home>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
             <hudson.plugins.gradle.GradleInstaller>
-              <id>0.7</id>
+              <id>1.1</id>
             </hudson.plugins.gradle.GradleInstaller>
           </installers>
         </hudson.tools.InstallSourceProperty>

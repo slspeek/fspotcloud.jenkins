@@ -4,7 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM">
+  <scm class="hudson.plugins.mercurial.MercurialSCM" plugin="mercurial@1.44">
     <source>https://code.google.com/p/fspotcloud.javasrc/</source>
     <modules></modules>
     <branch>experimental</branch>
@@ -20,26 +20,29 @@
   <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
       <description></description>
       <switches>-Pall_tests=true -Panalysis=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
       <tasks>clean build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 1.1</gradleName>
       <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
-    <hudson.plugins.checkstyle.CheckStylePublisher>
+    <hudson.plugins.checkstyle.CheckStylePublisher plugin="checkstyle@3.35">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
       <pluginName>[CHECKSTYLE] </pluginName>
       <defaultEncoding></defaultEncoding>
       <canRunOnFailed>false</canRunOnFailed>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds>
+      <thresholds plugin="analysis-core@1.49">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -54,15 +57,16 @@
       <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
       <pattern>**/build/reports/checkstyle/main.xml,**/build/reports/checkstyle/test.xml</pattern>
     </hudson.plugins.checkstyle.CheckStylePublisher>
-    <hudson.plugins.findbugs.FindBugsPublisher>
+    <hudson.plugins.findbugs.FindBugsPublisher plugin="findbugs@4.48">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
       <pluginName>[FINDBUGS] </pluginName>
       <defaultEncoding></defaultEncoding>
       <canRunOnFailed>false</canRunOnFailed>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds>
+      <thresholds plugin="analysis-core@1.49">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -74,19 +78,20 @@
       </thresholds>
       <shouldDetectModules>false</shouldDetectModules>
       <dontComputeNew>true</dontComputeNew>
-      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
       <pattern>**/build/reports/findbugs/main.xml **/build/reports/findbugs/test.xml</pattern>
       <isRankActivated>false</isRankActivated>
     </hudson.plugins.findbugs.FindBugsPublisher>
-    <hudson.plugins.pmd.PmdPublisher>
+    <hudson.plugins.pmd.PmdPublisher plugin="pmd@3.34">
       <healthy></healthy>
       <unHealthy></unHealthy>
       <thresholdLimit>low</thresholdLimit>
       <pluginName>[PMD] </pluginName>
       <defaultEncoding></defaultEncoding>
       <canRunOnFailed>false</canRunOnFailed>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
       <useDeltaValues>false</useDeltaValues>
-      <thresholds>
+      <thresholds plugin="analysis-core@1.49">
         <unstableTotalAll></unstableTotalAll>
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
@@ -98,7 +103,7 @@
       </thresholds>
       <shouldDetectModules>false</shouldDetectModules>
       <dontComputeNew>true</dontComputeNew>
-      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
       <pattern>**/build/reports/pmd/main.xml,**/build/reports/pmd/test.xml</pattern>
     </hudson.plugins.pmd.PmdPublisher>
     <hudson.tasks.junit.JUnitResultArchiver>

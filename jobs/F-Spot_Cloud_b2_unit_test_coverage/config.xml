@@ -4,14 +4,9 @@
   <description>Unit test coverage</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM">
-    <source>https://code.google.com/p/fspotcloud.javasrc/</source>
-    <modules></modules>
-    <branch>experimental</branch>
-    <clean>false</clean>
-    <browser class="hudson.plugins.mercurial.browser.HgWeb">
-      <url>https://code.google.com/p/fspotcloud.javasrc/</url>
-    </browser>
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.5">
+    <parentJobName>F-Spot_Cloud_a1_compilation_only</parentJobName>
+    <criteria>Any</criteria>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -20,24 +15,28 @@
   <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
       <description></description>
-      <switches>-i -Pcobertura=true -Pbuild_number=$BUILD_NUMBER</switches>
-      <tasks>clean unittestcoverage</tasks>
+      <switches>-i -Pcobertura=true -x :client:compileGwt -x :keyboard-action:compileGwt</switches>
+      <tasks>unittestcoverage</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 1.1</gradleName>
       <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
-    <hudson.plugins.cobertura.CoberturaPublisher>
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.8">
       <coberturaReportFile>**/build/reports/cobertura/coverage.xml</coberturaReportFile>
       <onlyStable>false</onlyStable>
       <failUnhealthy>false</failUnhealthy>
       <failUnstable>false</failUnstable>
       <autoUpdateHealth>false</autoUpdateHealth>
       <autoUpdateStability>false</autoUpdateStability>
+      <zoomCoverageChart>false</zoomCoverageChart>
+      <failNoReports>false</failNoReports>
       <healthyTarget>
         <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
           <entry>

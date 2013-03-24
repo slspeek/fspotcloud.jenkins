@@ -4,14 +4,9 @@
   <description>Installers for J2EE server and peer</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM">
-    <source>https://code.google.com/p/fspotcloud.javasrc/</source>
-    <modules></modules>
-    <branch>experimental</branch>
-    <clean>false</clean>
-    <browser class="hudson.plugins.mercurial.browser.HgWeb">
-      <url>https://code.google.com/p/fspotcloud.javasrc/</url>
-    </browser>
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.5">
+    <parentJobName>F-Spot_Cloud_b4_gwt_compilation</parentJobName>
+    <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -20,14 +15,16 @@
   <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
       <description></description>
-      <switches> -Pbuild_number=$BUILD_NUMBER</switches>
-      <tasks>clean installer-j2ee-server:build installer-peer:build</tasks>
+      <switches>-x :client:compileGwt -Prelease=true</switches>
+      <tasks>installer-j2ee-server:build installer-peer:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 1.1</gradleName>
       <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
