@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>1.506</version>
+  <version>1.519</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -19,7 +19,7 @@
   <jdks>
     <jdk>
       <name>Openjdk 6</name>
-      <home>/usr/lib/jvm/java-6-openjdk</home>
+      <home>/usr/lib/jvm/java-6-openjdk-amd64</home>
       <properties/>
     </jdk>
   </jdks>
@@ -66,6 +66,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
+      <recurse>false</recurse>
     </listView>
   </views>
   <primaryView>Alle</primaryView>
@@ -84,11 +85,13 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>3</int>
+          <int>4</int>
           <string>ANDROID_HOME</string>
           <string>/home/jenkins/android-sdk-linux_x86/</string>
           <string>DISPLAY</string>
           <string>:0.0</string>
+          <string>JAVA_HOME</string>
+          <string>/usr/lib/jvm/java-6-openjdk-amd64</string>
           <string>JAVA_OPTS</string>
           <string>-Xmx512M </string>
         </tree-map>
