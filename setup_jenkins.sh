@@ -1,3 +1,4 @@
+adduser -M jenkins #to get a uid>1000, so we can graphically login and run 
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 echo deb http://pkg.jenkins-ci.org/debian binary/>>/etc/apt/sources.list
 sudo apt-get --yes --force-yes update
