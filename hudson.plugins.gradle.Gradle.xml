@@ -15,19 +15,5 @@
       </properties>
       <gradleHome></gradleHome>
     </hudson.plugins.gradle.GradleInstallation>
-    <hudson.plugins.gradle.GradleInstallation>
-      <name>Gradle 1.1</name>
-      <home></home>
-      <properties>
-        <hudson.tools.InstallSourceProperty>
-          <installers>
-            <hudson.plugins.gradle.GradleInstaller>
-              <id>1.0</id>
-            </hudson.plugins.gradle.GradleInstaller>
-          </installers>
-        </hudson.tools.InstallSourceProperty>
-      </properties>
-      <gradleHome></gradleHome>
-    </hudson.plugins.gradle.GradleInstallation>
   </installations>
 </hudson.plugins.gradle.Gradle_-DescriptorImpl>

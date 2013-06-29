@@ -85,9 +85,7 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>4</int>
-          <string>ANDROID_HOME</string>
-          <string>/home/jenkins/android-sdk-linux_x86/</string>
+          <int>3</int>
           <string>DISPLAY</string>
           <string>:0.0</string>
           <string>JAVA_HOME</string>

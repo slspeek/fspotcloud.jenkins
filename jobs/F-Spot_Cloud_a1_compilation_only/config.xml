@@ -31,7 +31,7 @@
       <tasks>clean compileJava compileTestJava peer:assemble</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.1</gradleName>
+      <gradleName>Gradle 1.0</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
