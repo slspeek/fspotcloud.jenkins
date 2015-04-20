@@ -2,18 +2,10 @@
 <hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.24">
   <installations>
     <hudson.plugins.gradle.GradleInstallation>
-      <name>Gradle 1.0</name>
-      <home></home>
-      <properties>
-        <hudson.tools.InstallSourceProperty>
-          <installers>
-            <hudson.plugins.gradle.GradleInstaller>
-              <id>1.0</id>
-            </hudson.plugins.gradle.GradleInstaller>
-          </installers>
-        </hudson.tools.InstallSourceProperty>
-      </properties>
-      <gradleHome></gradleHome>
+      <name>Gradle 2.2</name>
+      <home>/usr/local/gradle-2.2</home>
+      <properties/>
+      <gradleHome>/usr/local/gradle-2.2</gradleHome>
     </hudson.plugins.gradle.GradleInstallation>
   </installations>
 </hudson.plugins.gradle.Gradle_-DescriptorImpl>
