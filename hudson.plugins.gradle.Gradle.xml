@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.22">
+<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.24">
   <installations>
     <hudson.plugins.gradle.GradleInstallation>
       <name>Gradle 1.0</name>
