@@ -4,7 +4,7 @@
   <description>Integration tests for GAE</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.5">
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
     <parentJobName>F-Spot_Cloud_a1_compilation_only</parentJobName>
     <criteria>Successful</criteria>
   </scm>
@@ -12,19 +12,20 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector"/>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches></switches>
       <tasks>server-module-gae:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 2.2</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
@@ -34,12 +35,13 @@
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
         <color>BLUE</color>
+        <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>server-module-gae/build/reports/tests/junitreports/TEST*.xml</testResults>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
+      <testResults>server-module-gae/build/test-results/fspot/TEST*.xml,server-module-gae/build/test-results/shotwell/TEST*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
-      <testDataPublishers/>
+      <healthScaleFactor>1.0</healthScaleFactor>
     </hudson.tasks.junit.JUnitResultArchiver>
   </publishers>
   <buildWrappers/>

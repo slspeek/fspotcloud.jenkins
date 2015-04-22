@@ -4,7 +4,7 @@
   <description>Selenium testing for the J2EE platform</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.5">
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
     <parentJobName>F-Spot_Cloud_b4_gwt_compilation</parentJobName>
     <criteria>Successful</criteria>
   </scm>
@@ -12,26 +12,27 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector"/>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches>-Pall_tests=true -Ptest_pause_time=3500  -Prelease=true -x :client:compileGwt </switches>
       <tasks>j2ee-server-test:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 2.2</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
-    <hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
       <testResults>j2ee-server-test/build/test-results/*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
-      <testDataPublishers/>
+      <healthScaleFactor>1.0</healthScaleFactor>
     </hudson.tasks.junit.JUnitResultArchiver>
     <hudson.tasks.BuildTrigger>
       <childProjects>F-Spot_Cloud_e1_installer_j2ee</childProjects>
@@ -39,6 +40,7 @@
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
         <color>BLUE</color>
+        <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>
