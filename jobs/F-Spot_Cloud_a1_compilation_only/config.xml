@@ -4,20 +4,27 @@
   <description>Compilation only</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM" plugin="mercurial@1.44">
-    <source>https://code.google.com/p/fspotcloud.javasrc/</source>
-    <modules></modules>
-    <branch>experimental</branch>
-    <clean>false</clean>
-    <browser class="hudson.plugins.mercurial.browser.HgWeb">
-      <url>https://code.google.com/p/fspotcloud.javasrc/</url>
-    </browser>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/slspeek/fspotcloud.javasrc.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/development</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector">
+  <triggers>
     <hudson.triggers.SCMTrigger>
       <spec>*/5 * * * *</spec>
       <ignorePostCommitHooks>false</ignorePostCommitHooks>
@@ -25,31 +32,33 @@
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle plugin="gradle@1.21">
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches>-x :client:compileGwt -x :keyboard-action:compileGwt</switches>
       <tasks>clean compileJava compileTestJava peer:assemble</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 2.2</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
-    <hudson.plugins.cloneworkspace.CloneWorkspacePublisher plugin="clone-workspace-scm@0.5">
+    <hudson.plugins.cloneworkspace.CloneWorkspacePublisher plugin="clone-workspace-scm@0.6">
       <workspaceGlob></workspaceGlob>
       <criteria>Successful</criteria>
       <archiveMethod>TAR</archiveMethod>
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
     <hudson.tasks.BuildTrigger>
-      <childProjects>F-Spot_Cloud_b1_unit_testing, F-Spot_Cloud_b4_gwt_compilation, F-Spot_Cloud_b2_unit_test_coverage, F-Spot_Cloud_b3_static_analysis</childProjects>
+      <childProjects>F-Spot_Cloud_b1_unit_testing</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
         <color>BLUE</color>
+        <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>

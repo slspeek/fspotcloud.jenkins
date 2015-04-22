@@ -35,7 +35,7 @@
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches></switches>
-      <tasks>clean build</tasks>
+      <tasks>clean build install</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
       <gradleName>Gradle 2.2</gradleName>
