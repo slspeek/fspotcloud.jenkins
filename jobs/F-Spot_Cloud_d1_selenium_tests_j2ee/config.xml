@@ -16,7 +16,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>(cd j2ee-e2e &amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=1500 -Prelease=true -x :client:compileGwt clean build)</command>
+      <command>cd j2ee-e2e &amp;&amp; /usr/local/gradle-2.2/bin/gradle clean \
+&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=1500 -Prelease=true -x :client:compileGwt build \
+&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=1500 -Prelease=true -x :client:compileGwt tomcatStop \
+deleteDB testFSpot</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -27,7 +30,7 @@
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
     <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
-      <testResults>j2ee-e2e/build/test-results/*.xml</testResults>
+      <testResults>j2ee-e2e/build/test-results/fspot/*.xml, j2ee-e2e/build/test-results/shotwell/*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
       <healthScaleFactor>1.0</healthScaleFactor>
     </hudson.tasks.junit.JUnitResultArchiver>

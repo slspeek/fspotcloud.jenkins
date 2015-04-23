@@ -53,7 +53,7 @@
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
     <hudson.tasks.BuildTrigger>
-      <childProjects>F-Spot_Cloud_b1_unit_testing</childProjects>
+      <childProjects>F-Spot_Cloud_b1_unit_testing, F-Spot_Cloud_b4_gwt_compilation, F-Spot_Cloud_b2_unit_test_coverage</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

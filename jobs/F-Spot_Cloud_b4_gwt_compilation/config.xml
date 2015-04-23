@@ -35,8 +35,15 @@
       <archiveMethod>TAR</archiveMethod>
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>client/build/libs/*.jar</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+    </hudson.tasks.ArtifactArchiver>
     <hudson.tasks.BuildTrigger>
-      <childProjects>F-Spot_Cloud_d1_live_server_tests_j2ee, F-Spot_Cloud_d2_selenium_tests_gae, F-Spot_Cloud_d1_selenium_tests_j2ee, F-Spot_Cloud_b4_gwt_compile_report</childProjects>
+      <childProjects>F-Spot_Cloud_d1_live_server_tests_j2ee, F-Spot_Cloud_d2_selenium_tests_gae, F-Spot_Cloud_d1_selenium_tests_j2ee, F-Spot_Cloud_b4_gwt_compile_report, F-Spot_Cloud_b3_static_analysis</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

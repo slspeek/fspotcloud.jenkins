@@ -4,34 +4,80 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.mercurial.MercurialSCM" plugin="mercurial@1.52">
-    <source>https://code.google.com/p/fspotcloud.javasrc/</source>
-    <modules></modules>
-    <revisionType>BRANCH</revisionType>
-    <revision>experimental</revision>
-    <clean>false</clean>
-    <browser class="hudson.plugins.mercurial.browser.HgWeb">
-      <url>https://code.google.com/p/fspotcloud.javasrc/</url>
-    </browser>
-    <disableChangeLog>false</disableChangeLog>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/slspeek/fspotcloud.javasrc.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/development</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
   </scm>
   <canRoam>true</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.SCMTrigger>
+      <spec>H/5 * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches>-Pall_tests=true -Panalysis=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
-      <tasks>clean build</tasks>
+      <tasks>clean assemble</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 1.0</gradleName>
+      <gradleName>Gradle 2.2</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches>-Pall_tests=true -Panalysis=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <tasks>:gae-e2e:clean</tasks>
+      <rootBuildScriptDir></rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>Gradle 2.2</gradleName>
+      <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches>-Pall_tests=true -Panalysis=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <tasks>:gae-e2e:build</tasks>
+      <rootBuildScriptDir></rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>Gradle 2.2</gradleName>
+      <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches>-Pall_tests=true -Panalysis=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <tasks>installer-gae:build installer-peer:build installer-j2ee-server:build</tasks>
+      <rootBuildScriptDir></rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>Gradle 2.2</gradleName>
+      <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
       <useWorkspaceAsHome>false</useWorkspaceAsHome>
     </hudson.plugins.gradle.Gradle>
   </builders>
@@ -58,7 +104,7 @@
       </thresholds>
       <shouldDetectModules>false</shouldDetectModules>
       <dontComputeNew>true</dontComputeNew>
-      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
       <pattern>**/build/reports/checkstyle/main.xml,**/build/reports/checkstyle/test.xml</pattern>
     </hudson.plugins.checkstyle.CheckStylePublisher>
     <hudson.plugins.findbugs.FindBugsPublisher plugin="findbugs@4.60">
@@ -86,6 +132,8 @@
       <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
       <pattern>**/build/reports/findbugs/main.xml **/build/reports/findbugs/test.xml</pattern>
       <isRankActivated>false</isRankActivated>
+      <excludePattern></excludePattern>
+      <includePattern></includePattern>
     </hudson.plugins.findbugs.FindBugsPublisher>
     <hudson.plugins.pmd.PmdPublisher plugin="pmd@3.41">
       <healthy></healthy>
@@ -115,7 +163,7 @@
     <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
       <testResults>**/build/**/TEST*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
-      <testDataPublishers/>
+      <healthScaleFactor>1.0</healthScaleFactor>
     </hudson.tasks.junit.JUnitResultArchiver>
   </publishers>
   <buildWrappers/>
