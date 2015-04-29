@@ -18,7 +18,7 @@
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches>-Ptest_pause_time=1500 -Pall_tests=true -x :client:compileGwt -Prelease=true</switches>
-      <tasks>gae-e2e:clean gae-e2e:build</tasks>
+      <tasks>gae-e2e:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
       <gradleName>Gradle 2.2</gradleName>
@@ -36,7 +36,7 @@
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
     <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
-      <testResults>gae-e2e/build/test-results/*.xml</testResults>
+      <testResults>gae-e2e/build/test-results/shotwell/*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
       <healthScaleFactor>1.0</healthScaleFactor>
     </hudson.tasks.junit.JUnitResultArchiver>
