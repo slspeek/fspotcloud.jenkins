@@ -17,8 +17,8 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd j2ee-e2e &amp;&amp; /usr/local/gradle-2.2/bin/gradle clean \
-&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=1500 -Prelease=true -x :client:compileGwt build \
-&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=1500 -Prelease=true -x :client:compileGwt tomcatStop \
+&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=2500 -Prelease=true -x :client:compileGwt build \
+&amp;&amp; /usr/local/gradle-2.2/bin/gradle -Pall_tests=true -Ptest_pause_time=2500 -Prelease=true -x :client:compileGwt tomcatStop \
 deleteDB testFSpot</command>
     </hudson.tasks.Shell>
   </builders>
