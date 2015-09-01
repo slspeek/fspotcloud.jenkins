@@ -35,7 +35,19 @@
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
       <switches></switches>
-      <tasks>clean build install</tasks>
+      <tasks>clean </tasks>
+      <rootBuildScriptDir></rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>Gradle 2.2</gradleName>
+      <useWrapper>false</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches></switches>
+      <tasks>build install</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
       <gradleName>Gradle 2.2</gradleName>
