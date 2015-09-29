@@ -9,7 +9,7 @@
     <criteria>Any</criteria>
   </scm>
   <canRoam>true</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -27,7 +27,7 @@
       <archiveMethod>TAR</archiveMethod>
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
-    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.9">
       <testResults>j2ee-e2e/build/test-results/fspot/*.xml, j2ee-e2e/build/test-results/shotwell/*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
       <healthScaleFactor>1.0</healthScaleFactor>

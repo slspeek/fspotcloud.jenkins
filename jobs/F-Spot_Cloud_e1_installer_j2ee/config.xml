@@ -21,7 +21,7 @@
       <tasks>:installer-j2ee:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 2.2</gradleName>
+      <gradleName>Gradle 2.7</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>true</fromRootBuildScriptDir>

@@ -9,7 +9,7 @@
     <criteria>Any</criteria>
   </scm>
   <canRoam>true</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -17,11 +17,11 @@
   <builders>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-i -Pcobertura=true -x :client:compileGwt -x :keyboard-action:compileGwt</switches>
+      <switches>-i  -x :client:compileGwt -x :keyboard-action:compileGwt</switches>
       <tasks>unittestcoverage</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 2.2</gradleName>
+      <gradleName>Gradle 2.7</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>

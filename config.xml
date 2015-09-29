@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>1.611</version>
+  <version>1.631</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -19,8 +19,8 @@
   </markupFormatter>
   <jdks>
     <jdk>
-      <name>OpemJDK 7</name>
-      <home>/usr/lib/jvm/java-7-openjdk-amd64</home>
+      <name>OpemJDK 8</name>
+      <home>/usr/lib/jvm/java-8-openjdk-amd64</home>
       <properties/>
     </jdk>
   </jdks>
@@ -88,7 +88,7 @@
           <string>DISPLAY</string>
           <string>:0.0</string>
           <string>JAVA_HOME</string>
-          <string>/usr/lib/jvm/java-7-openjdk-amd64</string>
+          <string>/usr/lib/jvm/java-8-openjdk-amd64</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>

@@ -7,5 +7,19 @@
       <properties/>
       <gradleHome>/usr/local/gradle-2.2</gradleHome>
     </hudson.plugins.gradle.GradleInstallation>
+    <hudson.plugins.gradle.GradleInstallation>
+      <name>Gradle 2.7</name>
+      <home></home>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.plugins.gradle.GradleInstaller>
+              <id>2.7</id>
+            </hudson.plugins.gradle.GradleInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+      <gradleHome></gradleHome>
+    </hudson.plugins.gradle.GradleInstallation>
   </installations>
 </hudson.plugins.gradle.Gradle_-DescriptorImpl>

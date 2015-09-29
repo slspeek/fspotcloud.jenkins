@@ -21,7 +21,7 @@
       <tasks>gae-e2e:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
-      <gradleName>Gradle 2.2</gradleName>
+      <gradleName>Gradle 2.7</gradleName>
       <useWrapper>false</useWrapper>
       <makeExecutable>false</makeExecutable>
       <fromRootBuildScriptDir>false</fromRootBuildScriptDir>
@@ -35,7 +35,7 @@
       <archiveMethod>TAR</archiveMethod>
       <overrideDefaultExcludes>false</overrideDefaultExcludes>
     </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
-    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.5">
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.9">
       <testResults>gae-e2e/build/test-results/shotwell/*.xml</testResults>
       <keepLongStdio>true</keepLongStdio>
       <healthScaleFactor>1.0</healthScaleFactor>
