@@ -17,7 +17,7 @@
   <builders>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-Ptest_pause_time=2500 -Pall_tests=true -x :client:compileGwt -Prelease=true</switches>
+      <switches>-Ptest_pause_time=4000 -Pall_tests=true -x :client:compileGwt -Prelease=true</switches>
       <tasks>gae-e2e:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>

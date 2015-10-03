@@ -34,7 +34,7 @@
   <builders>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-Pall_tests=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <switches>-Pall_tests=true -Dtest_pause_time=4000  -Pbuild_number=$BUILD_NUMBER</switches>
       <tasks>clean assemble</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
@@ -46,7 +46,7 @@
     </hudson.plugins.gradle.Gradle>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-Pall_tests=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <switches>-Pall_tests=true -Dtest_pause_time=4000  -Pbuild_number=$BUILD_NUMBER</switches>
       <tasks>:gae-e2e:clean</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
@@ -58,7 +58,7 @@
     </hudson.plugins.gradle.Gradle>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-Pall_tests=true -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <switches>-Pall_tests=true -Dtest_pause_time=4000  -Pbuild_number=$BUILD_NUMBER</switches>
       <tasks>:gae-e2e:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
@@ -70,7 +70,7 @@
     </hudson.plugins.gradle.Gradle>
     <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
       <description></description>
-      <switches>-Pall_tests=true  -Dtest_pause_time=2500  -Pbuild_number=$BUILD_NUMBER</switches>
+      <switches>-Pall_tests=true  -Dtest_pause_time=4000  -Pbuild_number=$BUILD_NUMBER</switches>
       <tasks>installer-gae:build installer-peer:build installer-j2ee-server:build</tasks>
       <rootBuildScriptDir></rootBuildScriptDir>
       <buildFile></buildFile>
